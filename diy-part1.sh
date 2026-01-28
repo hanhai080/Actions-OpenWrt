@@ -13,10 +13,11 @@
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
-# Add a feed source
-echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-#echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-# 添加 Lucky 插件源
+# 添加 helloworld 插件源
+sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
+
+# 添加 Lucky 插件源 (核心需求)
 sed -i '$a src-git lucky https://github.com/gdy666/luci-app-lucky.git' feeds.conf.default
-# 添加 PassWall 插件源
+
+# 添加 PassWall 插件源 (核心需求)
 sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall.git' feeds.conf.default
