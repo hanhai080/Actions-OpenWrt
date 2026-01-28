@@ -1,7 +1,6 @@
-# 强制换行并清理可能存在的旧源
-echo >> feeds.conf.default
+# 1. 绕过 feeds 订阅系统，直接将插件源码克隆到 package 目录下
+# 这样 Update feeds 步骤就不会再去连接这些链接，也就不会报错了
 
-# 使用更稳定的镜像/备用地址
-echo 'src-git helloworld https://github.com/fw876/helloworld' >> feeds.conf.default
-echo 'src-git lucky https://github.com/gdy666/luci-app-lucky.git' >> feeds.conf.default
-echo 'src-git passwall https://github.com/chenmozhijia/openwrt-passwall.git' >> feeds.conf.default
+git clone --depth 1 https://github.com/gdy666/luci-app-lucky.git package/lucky
+git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+git clone --depth 1 https://github.com/fw876/helloworld.git package/helloworld
